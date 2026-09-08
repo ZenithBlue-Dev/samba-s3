@@ -1,0 +1,197 @@
+---
+// App tour slideshow — real device screenshots, bare (no cards), manual only.
+// No autoplay: arrows, dots, keyboard and swipe.
+const slides = [
+  {
+    img: "screenshots/tour-home.jpg",
+    alt: "SambaS3 library with Red Dead Redemption Game of the Year focused",
+    kicker: "LIBRARY",
+    title: "YOUR SHELF, XMB STYLE",
+    body: "Covers at 2:3 with the gold bloom on focus. Per-card PPU status, serial badges and the firmware footer — this shot has Red Dead Redemption front and center.",
+    bullets: ["Install/Runtime PPU state on every card", "✕ Play · △ Import · ○ Back hint strip"],
+  },
+  {
+    img: "screenshots/tour-launcher.jpg",
+    alt: "Launch Profile sheet for Grand Theft Auto V with per-game settings",
+    kicker: "LAUNCH PROFILE",
+    title: "EVERY GAME GETS ITS OWN SETUP",
+    body: "Triangle on any title opens its profile: resolution, PPU/SPU decoder, the exact Turnip build (turnip-26.3 here), PPU preparation state, save slots and START.",
+    bullets: ["GLOBAL tags show inherited values", "Save slots with live thumbnails"],
+  },
+  {
+    img: "screenshots/tour-gameplay.jpg",
+    alt: "Demon's Souls gameplay at 29.9 FPS with touch overlay and FPS graph",
+    kicker: "IN-GAME",
+    title: "REAL GAMES, REAL FRAMERATES",
+    body: "Demon's Souls running at a locked-feeling 29.9 FPS with the full touch overlay — D-pad, face buttons, shoulders, PS/SELECT/START — plus live FPS and frame-time graphs.",
+    bullets: ["Live FPS + frame-time telemetry", "Full overlay, toggleable per game"],
+  },
+  {
+    img: "screenshots/tour-demonsouls.jpg",
+    alt: "Demon's Souls vista running at 30.1 FPS with overlay hidden",
+    kicker: "GAMEPLAY",
+    title: "PAD MODE: ZERO CHROME",
+    body: "Playing on a controller? The overlay disappears entirely for a clean fullscreen image — 30.1 FPS here with just the performance monitor ticking.",
+    bullets: ["Overlay off by default with a pad", "Fullscreen immersive rendering"],
+  },
+  {
+    img: "screenshots/tour-menu.jpg",
+    alt: "In-game pause menu for Demon's Souls with Resume, Configure and Live Logs",
+    kicker: "PAUSE MENU",
+    title: "START MEANS BUSINESS",
+    body: "One press pauses emulation and opens the menu: resume, per-game configure, settings, performance monitor, live logs and controller options — all pad-navigable.",
+    bullets: ["Resume · Configure · Live Logs", "Gold focus ring on every row"],
+  },
+  {
+    img: "screenshots/tour-settings.jpg",
+    alt: "Settings hub with System, Graphics and Diagnostics card groups",
+    kicker: "SETTINGS",
+    title: "EVERY KNOB, PAD-REACHABLE",
+    body: "The settings hub groups System & Storage, Graphics & Input and Diagnostics & Tools. Advanced emulator flags live behind versioned YAML — v2026.07.22 here.",
+    bullets: ["D-pad navigate · ✕ select · ○ back", "Custom GPU driver + controls + monitor"],
+  },
+  {
+    img: "screenshots/overlay.jpg",
+    alt: "Touch overlay editor with draggable PlayStation controls",
+    body: "Drag, scale and set opacity per control with a live preview of exactly what you'll get in-game.",
+    bullets: ["Per-button size and transparency", "Preview before you commit"],
+    kicker: "OVERLAY",
+    title: "TOUCH CONTROLS YOU PLACE YOURSELF",
+  },
+  {
+    img: "screenshots/drivers.jpg",
+    alt: "GPU driver management screen",
+    body: "Play Store builds bundle tested Turnip drivers; standard builds import or download externals per game.",
+    bullets: ["Bundled Turnip on Play Store flavor", "Per-game driver assignment"],
+    kicker: "DRIVERS",
+    title: "GPU DRIVERS WITHOUT THE HUNT",
+  },
+];
+---
+
+<section id="showcase" class="scroll-mt-20 border-y border-white/8 bg-surface/40">
+  <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:py-28">
+    <div class="reveal mx-auto max-w-2xl text-center">
+      <p class="font-mono2 text-[11px] tracking-[0.28em] text-gold">02 — APP TOUR</p>
+      <h2 data-glitch class="mt-3 font-heading text-3xl font-bold tracking-wide text-cream sm:text-4xl">EIGHT SCREENS, STRAIGHT FROM THE DEVICE</h2>
+      <p class="mt-4 font-body text-lg leading-relaxed text-warm">No mockups — swipe, arrow-key or dot your way through the real app.</p>
+    </div>
+
+    <div class="reveal mt-12 grid items-center gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14">
+      <!-- copy panel (updated per slide) -->
+      <div>
+        <p id="tour-kicker" class="font-mono2 text-[11px] tracking-[0.28em] text-gold">LIBRARY</p>
+        <h3 id="tour-title" class="mt-2 min-h-[2.6em] font-heading text-2xl font-bold tracking-wide text-cream sm:text-3xl">YOUR SHELF, XMB STYLE</h3>
+        <p id="tour-body" class="mt-4 min-h-[5.5em] font-body text-lg leading-relaxed text-warm">Covers at 2:3 with the gold bloom on focus. Per-card PPU status, serial badges and the firmware footer — this shot has Red Dead Redemption front and center.</p>
+        <ul id="tour-bullets" class="mt-5 grid min-h-[3.5em] gap-2">
+          <li class="flex items-start gap-2.5 font-body text-cream/90"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rotate-45 bg-gold" aria-hidden="true"></span>Install/Runtime PPU state on every card</li>
+          <li class="flex items-start gap-2.5 font-body text-cream/90"><span class="mt-1.5 h-1.5 w-1.5 shrink-0 rotate-45 bg-gold" aria-hidden="true"></span>✕ Play · △ Import · ○ Back hint strip</li>
+        </ul>
+        <p class="mt-6 flex items-center gap-4">
+          <button id="tour-prev" aria-label="Previous screenshot" class="rounded border border-gold/40 px-4 py-2.5 font-heading text-lg font-bold text-gold transition hover:border-focus hover:text-focus">←</button>
+          <button id="tour-next" aria-label="Next screenshot" class="rounded border border-gold/40 px-4 py-2.5 font-heading text-lg font-bold text-gold transition hover:border-focus hover:text-focus">→</button>
+          <span id="tour-count" role="status" aria-live="polite" class="font-mono2 text-[12px] tracking-[0.2em] text-warm">01 / 08</span>
+        </p>
+      </div>
+
+      <!-- bare-screenshot stage -->
+      <div>
+        <div
+          id="tour-stage"
+          tabindex="0"
+          role="region"
+          aria-roledescription="carousel"
+          aria-label="App screenshots. Use left and right arrows to browse."
+          class="grid shadow-[0_30px_90px_-30px_rgba(0,0,0,0.9)] outline-none focus-visible:outline-2 focus-visible:outline-focus"
+        >
+          {slides.map((s, i) => (
+            <img
+              src={s.img}
+              alt={s.alt}
+              width="1920"
+              height="873"
+              loading={i === 0 ? "eager" : "lazy"}
+              decoding="async"
+              draggable="false"
+              data-slide={i}
+              class="tour-slide col-start-1 row-start-1 w-full transition-opacity duration-300"
+              style={i === 0 ? "opacity:1" : "opacity:0;pointer-events:none"}
+            />
+          ))}
+        </div>
+        <div id="tour-dots" class="mt-5 flex items-center justify-center gap-2.5">
+          {slides.map((s, i) => (
+            <button
+              data-dot={i}
+              aria-label={`Go to screenshot ${i + 1}: ${s.title}`}
+              class="tour-dot h-2 rounded-full transition-all"
+              style={i === 0 ? "width:28px;background:#F0C040" : "width:8px;background:#3D3A30"}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script define:vars={{ slides }}>
+  const imgs = Array.from(document.querySelectorAll(".tour-slide"));
+  const dots = Array.from(document.querySelectorAll(".tour-dot"));
+  const kicker = document.getElementById("tour-kicker");
+  const title = document.getElementById("tour-title");
+  const body = document.getElementById("tour-body");
+  const bullets = document.getElementById("tour-bullets");
+  const count = document.getElementById("tour-count");
+  const stage = document.getElementById("tour-stage");
+  let idx = 0;
+
+  function render() {
+    imgs.forEach((im, i) => {
+      const on = i === idx;
+      im.style.opacity = on ? "1" : "0";
+      im.style.pointerEvents = on ? "auto" : "none";
+    });
+    dots.forEach((d, i) => {
+      const on = i === idx;
+      d.style.width = on ? "28px" : "8px";
+      d.style.background = on ? "#F0C040" : "#3D3A30";
+    });
+    const s = slides[idx];
+    if (kicker) kicker.textContent = s.kicker;
+    if (title) title.textContent = s.title;
+    if (body) body.textContent = s.body;
+    if (count) count.textContent = `${String(idx + 1).padStart(2, "0")} / ${String(slides.length).padStart(2, "0")}`;
+    if (bullets) {
+      bullets.innerHTML = "";
+      for (const b of s.bullets) {
+        const li = document.createElement("li");
+        li.className = "flex items-start gap-2.5 font-body text-cream/90";
+        li.innerHTML = `<span class="mt-1.5 h-1.5 w-1.5 shrink-0 rotate-45 bg-gold" aria-hidden="true"></span>${b}`;
+        bullets.appendChild(li);
+      }
+    }
+  }
+
+  function go(n) {
+    idx = (n + slides.length) % slides.length;
+    render();
+  }
+
+  document.getElementById("tour-prev")?.addEventListener("click", () => go(idx - 1));
+  document.getElementById("tour-next")?.addEventListener("click", () => go(idx + 1));
+  dots.forEach((d, i) => d.addEventListener("click", () => go(i)));
+  stage?.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight") { go(idx + 1); e.preventDefault(); }
+    if (e.key === "ArrowLeft") { go(idx - 1); e.preventDefault(); }
+  });
+  // swipe, no timers
+  let startX = null;
+  stage?.addEventListener("pointerdown", (e) => { startX = e.clientX; });
+  stage?.addEventListener("pointerup", (e) => {
+    if (startX === null) return;
+    const dx = e.clientX - startX;
+    if (dx < -40) go(idx + 1);
+    else if (dx > 40) go(idx - 1);
+    startX = null;
+  });
+</script>

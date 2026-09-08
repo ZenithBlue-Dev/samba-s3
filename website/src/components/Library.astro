@@ -1,0 +1,92 @@
+---
+// Interactive XMB carousel — GameHub "Top Charts" analogue.
+// Keyboard navigable (←/→ + Enter), mirrors the app's focus model.
+const games = [
+  { title: "GOD OF WAR III", serial: "BCES-00510", res: "1080p", fps: "60 FPS", size: "35.4 GB", art: "linear-gradient(135deg,#3b0d0d,#7a1f1f 55%,#1a0505)", glyph: "Ω" },
+  { title: "UNCHARTED 2", serial: "BCUS-98132", res: "720p", fps: "30 FPS", size: "18.9 GB", art: "linear-gradient(135deg,#0d2733,#1f6a7a 55%,#081318)", glyph: "◈" },
+  { title: "METAL GEAR SOLID 4", serial: "BLUS-30109", res: "1080p", fps: "30 FPS", size: "27.2 GB", art: "linear-gradient(135deg,#1a1a1a,#3d3d3d 55%,#0a0a0a)", glyph: "!" },
+  { title: "THE LAST OF US", serial: "BCUS-98174", res: "720p", fps: "30 FPS", size: "24.6 GB", art: "linear-gradient(135deg,#12240f,#3f6b2f 55%,#0a1208)", glyph: "✚" },
+  { title: "GRAN TURISMO 5", serial: "BCUS-98114", res: "1080p", fps: "60 FPS", size: "19.8 GB", art: "linear-gradient(135deg,#4d0d0d,#c22 55%,#160505)", glyph: "GT" },
+  { title: "GTA SAN ANDREAS", serial: "BLUS-31584", res: "720p", fps: "30 FPS", size: "4.4 GB", art: "linear-gradient(135deg,#101828,#3b4a63 55%,#05070c)", glyph: "SA" },
+];
+---
+
+<section id="library" class="scroll-mt-20 border-y border-white/8 bg-surface/40">
+  <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:py-28">
+    <div class="reveal flex flex-wrap items-end justify-between gap-4">
+      <div class="max-w-2xl">
+        <p class="font-mono2 text-[11px] tracking-[0.28em] text-gold">04 — LIBRARY</p>
+        <h2 data-glitch class="mt-3 font-heading text-3xl font-bold tracking-wide text-cream sm:text-4xl">TRY THE XMB. USE YOUR ARROW KEYS.</h2>
+        <p class="mt-4 font-body text-lg leading-relaxed text-warm">This strip behaves like the app: focus one card, the rest dim. <span class="text-cream">← →</span> to move, <span class="text-cream">Enter</span> to “boot”.</p>
+      </div>
+      <p id="xmb-status" class="rounded border border-white/10 bg-abyss px-3 py-2 font-mono2 text-[11px] tracking-[0.2em] text-warm" role="status" aria-live="polite">FOCUS 1 / 6</p>
+    </div>
+
+    <div class="reveal xmb-track mt-10 overflow-x-auto pb-6" id="xmb" tabindex="0" role="listbox" aria-label="Demo game library">
+      <div class="flex items-stretch justify-start gap-5 px-10 py-6 lg:justify-center" id="xmb-row">
+        {games.map((g, i) => (
+          <button
+            role="option"
+            aria-selected={i === 0 ? "true" : "false"}
+            data-i={i}
+            class="xmb-card w-36 shrink-0 overflow-hidden rounded-lg border border-white/10 bg-elevated text-left sm:w-44"
+            data-active={i === 0 ? "true" : "false"}
+          >
+            <span class="flex aspect-[2/3] w-full items-center justify-center font-display text-2xl text-cream/80" style={`background:${g.art}`} aria-hidden="true">{g.glyph}</span>
+            <span class="block border-t border-white/8 bg-abyss/80 px-3 py-2">
+              <span class="block truncate font-heading text-[13px] font-bold tracking-[0.1em] text-cream">{g.title}</span>
+              <span class="mt-0.5 block font-mono2 text-[10px] tracking-[0.14em] text-warm">{g.serial} · {g.res}</span>
+            </span>
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <div class="reveal mx-auto mt-2 max-w-xl text-center">
+      <p id="xmb-title" class="font-heading text-xl font-bold tracking-[0.24em] text-gold">GOD OF WAR III</p>
+      <p id="xmb-meta" class="mt-2 flex flex-wrap items-center justify-center gap-3 font-mono2 text-[11px] tracking-[0.14em] text-warm">
+        <span class="rounded border border-white/10 bg-abyss px-2 py-1">BCES-00510</span>
+        <span>1080p</span><span>60 FPS</span><span>35.4 GB</span>
+      </p>
+      <div class="mt-5 flex items-center justify-center gap-6 font-heading text-xs font-bold tracking-[0.2em]">
+        <span class="flex items-center gap-2 text-gold"><span class="flex h-6 w-6 items-center justify-center rounded-full border-2 border-gold text-[10px]">✕</span> PLAY</span>
+        <span class="flex items-center gap-2 text-warm"><span>△</span> INFO</span>
+        <span class="flex items-center gap-2 text-warm"><span class="flex h-6 w-6 items-center justify-center rounded-full border-2 border-warm text-[10px]">○</span> BACK</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script define:vars={{ games }}>
+  const row = document.getElementById("xmb-row");
+  const cards = row ? Array.from(row.querySelectorAll(".xmb-card")) : [];
+  const title = document.getElementById("xmb-title");
+  const meta = document.getElementById("xmb-meta");
+  const status = document.getElementById("xmb-status");
+  let idx = 0;
+
+  function render(scroll = false) {
+    cards.forEach((c, i) => {
+      const active = i === idx;
+      c.dataset.active = String(active);
+      c.setAttribute("aria-selected", String(active));
+    });
+    const g = games[idx];
+    if (title) title.textContent = g.title;
+    if (meta) meta.innerHTML = `<span class="rounded border border-white/10 bg-abyss px-2 py-1">${g.serial}</span><span>${g.res}</span><span>${g.fps}</span><span>${g.size}</span>`;
+    if (status) status.textContent = `FOCUS ${idx + 1} / ${games.length}`;
+    // Only ever scroll on explicit keyboard input — never on hover/click,
+    // and never on a timer, so the page can't move on its own.
+    if (scroll) cards[idx]?.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+  }
+
+  cards.forEach((c, i) => {
+    c.addEventListener("click", () => { idx = i; render(); });
+    c.addEventListener("mouseenter", () => { idx = i; render(); });
+    c.addEventListener("focus", () => { idx = i; render(); });
+  });
+  document.getElementById("xmb")?.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight") { idx = (idx + 1) % games.length; render(true); e.preventDefault(); }
+    if (e.key === "ArrowLeft") { idx = (idx - 1 + games.length) % games.length; render(true); e.preventDefault(); }
+  });
+</script>

@@ -1,0 +1,78 @@
+---
+// Playable Games — real test data from the OnePlus 13R (Snapdragon 8 Gen 3).
+// Cover art extracted from inside each game's own ISO (ICON0.PNG).
+const games = [
+  {
+    cover: "screenshots/games/gtav.jpg",
+    title: "GRAND THEFT AUTO V",
+    serial: "BLJM61019",
+    fps: "10",
+    unit: "FPS AVG",
+    note: "Boots and runs in-game on the 13R. Heavy title — expect low framerates.",
+  },
+  {
+    cover: "screenshots/games/gtasa.jpg",
+    title: "GTA SAN ANDREAS",
+    serial: "BLUS31584",
+    fps: "30",
+    unit: "FPS AVG",
+    note: "Smooth full-speed play on the 13R. A great first boot test.",
+  },
+  {
+    cover: "screenshots/games/demonsouls.jpg",
+    title: "DEMON'S SOULS",
+    serial: "BLUS30443",
+    fps: "30",
+    unit: "FPS AVG",
+    note: "Full-speed in-game on the 13R with the touch overlay or a pad.",
+  },
+];
+
+const rig = [
+  { icon: "screenshots/vendor/hw_soc_snapdragon.png", label: "Snapdragon 8 Gen 3" },
+  { icon: "screenshots/vendor/hw_gpu_adreno.png", label: "Adreno 750" },
+  { icon: "screenshots/vendor/hw_driver_mesa.png", label: "Mesa Turnip" },
+  { icon: "screenshots/vendor/hw_cpu_arm.png", label: "arm64-v8a" },
+];
+---
+
+<section id="games" class="mx-auto max-w-7xl scroll-mt-20 px-4 py-20 sm:px-6 lg:py-28">
+  <div class="reveal mx-auto max-w-2xl text-center">
+    <p class="font-mono2 text-[11px] tracking-[0.28em] text-gold">05 — PLAYABLE GAMES</p>
+    <h2 data-glitch class="mt-3 font-heading text-3xl font-bold tracking-wide text-cream sm:text-4xl">TESTED ON A REAL 13R</h2>
+    <p class="mt-4 font-body text-lg leading-relaxed text-warm">Framerates measured on-device. Cover art pulled from inside each game's own ISO.</p>
+  </div>
+
+  <div class="mt-10 grid gap-4 md:grid-cols-3">
+    {games.map((g, i) => (
+      <article class="reveal overflow-hidden rounded-lg border border-white/8 bg-surface transition hover:border-gold/50" style={`transition-delay:${i * 80}ms`}>
+        <img src={g.cover} alt={`${g.title} cover art from inside the game ISO`} width="320" height="176" loading="lazy" decoding="async" class="aspect-[16/9] w-full object-cover" />
+        <div class="p-6">
+          <div class="flex items-start justify-between gap-3">
+            <div>
+              <h3 class="font-heading text-lg font-bold tracking-[0.08em] text-cream">{g.title}</h3>
+              <p class="mt-1 inline-block rounded border border-white/10 bg-abyss px-2 py-0.5 font-mono2 text-[11px] tracking-[0.16em] text-warm">{g.serial}</p>
+            </div>
+            <p class="shrink-0 text-right">
+              <span class="font-mono2 text-4xl text-gold">{g.fps}</span>
+              <span class="block font-mono2 text-[10px] tracking-[0.2em] text-warm">{g.unit}</span>
+            </p>
+          </div>
+          <p class="mt-4 font-body leading-relaxed text-warm">{g.note}</p>
+        </div>
+      </article>
+    ))}
+  </div>
+
+  <!-- tested-on rig strip with the app's own vendor icons -->
+  <div class="reveal mt-6 flex flex-wrap items-center justify-center gap-x-8 gap-y-4 rounded-lg border border-gold/25 bg-gold-muted/40 px-6 py-5">
+    <span class="font-heading text-[13px] font-bold tracking-[0.2em] text-gold">TESTED ON · ONEPLUS 13R</span>
+    {rig.map((r) => (
+      <span class="flex items-center gap-2.5">
+        <img src={r.icon} alt="" width="40" height="40" loading="lazy" decoding="async" class="h-8 w-8 rounded-md bg-white/95 object-contain p-1" />
+        <span class="font-mono2 text-[12px] tracking-[0.12em] text-cream">{r.label}</span>
+      </span>
+    ))}
+    <span class="font-mono2 text-[12px] tracking-[0.12em] text-warm">FW 4.92</span>
+  </div>
+</section>

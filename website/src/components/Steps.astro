@@ -1,0 +1,44 @@
+---
+// 3-step setup — GameHub parity: "1-click import" adapted to firmware → games → play.
+const steps = [
+  {
+    n: "01",
+    title: "INSTALL FIRMWARE",
+    body: "Dump PS3UPDAT.PUP from your own console and install it in-app. The firmware row shows your version (e.g. 4.92) at a glance in the library footer.",
+    hint: "△ OPTIONS · INSTALL",
+  },
+  {
+    n: "02",
+    title: "IMPORT GAMES",
+    body: "Add your own ISO, PKG or folder dumps with the + tile. Covers, serials (BLUS/BLES/BCES…) and per-game settings are picked up automatically.",
+    hint: "+ ADD GAME",
+  },
+  {
+    n: "03",
+    title: "PRESS ✕ AND PLAY",
+    body: "Boot from the carousel, tune PPU / video / drivers per title if needed, and use Start for the pause menu — states, screenshots, quit.",
+    hint: "✕ PLAY · START MENU",
+  },
+];
+---
+
+<section id="setup" class="mx-auto max-w-7xl scroll-mt-20 px-4 py-20 sm:px-6 lg:py-28">
+  <div class="reveal max-w-2xl">
+    <p class="font-mono2 text-[11px] tracking-[0.28em] text-gold">03 — SETUP</p>
+    <h2 data-glitch class="mt-3 font-heading text-3xl font-bold tracking-wide text-cream sm:text-4xl">FROM APK TO BOOT IN THREE MOVES</h2>
+  </div>
+  <ol class="mt-10 grid gap-4 md:grid-cols-3">
+    {steps.map((s, i) => (
+      <li class="reveal relative overflow-hidden rounded-lg border border-white/8 bg-surface p-6" style={`transition-delay:${i * 80}ms`}>
+        <span class="font-display text-2xl text-gold/30" aria-hidden="true">{s.n}</span>
+        <h3 class="mt-3 font-heading text-xl font-bold tracking-[0.08em] text-cream">{s.title}</h3>
+        <p class="mt-2 font-body leading-relaxed text-warm">{s.body}</p>
+        <p class="mt-4 inline-block rounded border border-gold/30 bg-gold-muted px-2.5 py-1 font-mono2 text-[11px] tracking-[0.18em] text-gold">{s.hint}</p>
+        {i < 2 && <span class="absolute right-5 top-6 hidden font-heading text-2xl text-faint md:block" aria-hidden="true">→</span>}
+      </li>
+    ))}
+  </ol>
+  <p class="reveal mt-6 font-body text-sm leading-relaxed text-faint">
+    Legal note: SambaS3 ships no firmware, no games and no keys. Only use dumps of hardware and discs you own, and respect your local law.
+  </p>
+</section>

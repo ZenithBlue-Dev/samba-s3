@@ -1,0 +1,26 @@
+{
+  "name": "sambas3-website",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SambaS3 — PS3 emulator for Android. Marketing site.",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "astro": "^7.3.1"
+  },
+  "devDependencies": {
+    "@astrojs/sitemap": "^3.2.0",
+    "@tailwindcss/vite": "^4.1.0",
+    "tailwindcss": "^4.1.0",
+    "typescript": "^5.9.0"
+  },
+  "allowScripts": {
+    "sharp@0.34.5": true,
+    "esbuild@0.28.2": true
+  }
+}

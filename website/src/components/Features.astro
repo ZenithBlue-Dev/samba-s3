@@ -1,0 +1,65 @@
+---
+// Feature grid — the app's real capabilities, GameHub-style card grid.
+const features = [
+  {
+    icon: "◫",
+    title: "XMB GAME LIBRARY",
+    body: "A console-style horizontal carousel with cover art, serials and per-game config. D-pad navigable end-to-end — touch is optional, never required.",
+    tag: "LIBRARY",
+  },
+  {
+    icon: "⚙",
+    title: "RUNTIME RPCSX CORE",
+    body: "The emulator core ships as a separate .so and loads at runtime via dlopen — update the core without reinstalling the app. ~25 JNI functions: boot, resume, surface, USB, settings.",
+    tag: "CORE",
+  },
+  {
+    icon: "▣",
+    title: "TURNIP GPU DRIVERS",
+    body: "Bundled Turnip drivers on Play Store builds, or import / download your own on standard builds. Per-game driver picks for Adreno GPUs.",
+    tag: "GRAPHICS",
+  },
+  {
+    icon: "✛",
+    title: "CONTROLLER-FIRST + OVERLAY EDITOR",
+    body: "USB & Bluetooth pads with a test screen, per-game mapping and a visual touch-overlay editor. PlayStation glyphs, not emoji.",
+    tag: "INPUT",
+  },
+  {
+    icon: "❚❚",
+    title: "SAVE STATES + PAUSE MENU",
+    body: "In-game pause menu: resume, save / load states with thumbnails, screenshots, quick settings and quit — all reachable with Start / Options.",
+    tag: "IN-GAME",
+  },
+  {
+    icon: "≡",
+    title: "DEEP SETTINGS, PAD-NAVIGABLE",
+    body: "Core, VFS, video, audio, PPU decoder, threads, patches, firmware, users, logs and crash history — every row reachable by vertical D-pad.",
+    tag: "SETTINGS",
+  },
+];
+---
+
+<section id="features" class="relative mx-auto max-w-7xl scroll-mt-20 px-4 py-20 sm:px-6 lg:py-28">
+  <div class="reveal max-w-2xl">
+    <p class="font-mono2 text-[11px] tracking-[0.28em] text-gold">01 — WHY SAMBAS3</p>
+    <h2 data-glitch class="mt-3 font-heading text-3xl font-bold tracking-wide text-cream sm:text-4xl">A CONSOLE UI, NOT AN EMULATOR SHELL</h2>
+    <p class="mt-4 font-body text-lg leading-relaxed text-warm">Everything in the app was designed for the couch and the controller — the site you're reading now uses the same navy-gold CRT system.</p>
+  </div>
+
+  <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    {features.map((f, i) => (
+      <article
+        class="reveal group rounded-lg border border-white/8 bg-surface p-6 transition hover:border-gold/50 hover:bg-elevated"
+        style={`transition-delay:${Math.min(i * 60, 300)}ms`}
+      >
+        <div class="flex items-center justify-between">
+          <span class="flex h-11 w-11 items-center justify-center rounded border border-gold/30 bg-gold-muted font-heading text-xl text-gold transition group-hover:border-focus group-hover:text-focus">{f.icon}</span>
+          <span class="rounded bg-gold-muted px-2 py-1 font-mono2 text-[10px] tracking-[0.2em] text-gold">{f.tag}</span>
+        </div>
+        <h3 class="mt-5 font-heading text-lg font-bold tracking-[0.08em] text-cream">{f.title}</h3>
+        <p class="mt-2 font-body leading-relaxed text-warm">{f.body}</p>
+      </article>
+    ))}
+  </div>
+</section>

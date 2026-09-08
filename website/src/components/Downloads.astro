@@ -1,0 +1,55 @@
+---
+// Download — GameHub hero-download parity, with the app's real flavors.
+const flavors = [
+  {
+    name: "STANDARD",
+    badge: "DEFAULT",
+    points: ["External GPU driver import + download", "Runtime RPCSX core updates", "For GitHub / sideload users"],
+    cta: "DOWNLOAD APK",
+    href: "https://github.com/zenithblue-oss/samba-s3/releases",
+    note: "GITHUB RELEASES · CHECKSUMS PUBLISHED",
+  },
+  {
+    name: "PLAY STORE",
+    badge: "BUNDLED TURNIP",
+    points: ["Tested Turnip drivers in assets", "No external driver hunting", "Signed AAB / Play release flow"],
+    cta: "GET ON PLAY",
+    href: "https://play.google.com/store/apps/details?id=com.zenithblue.sambas3",
+    note: "GOOGLE PLAY · AUTO-UPDATES",
+  },
+];
+---
+
+<section id="download" class="scroll-mt-20 border-y border-white/8 bg-surface/40">
+  <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:py-28">
+    <div class="reveal mx-auto max-w-2xl text-center">
+      <p class="font-mono2 text-[11px] tracking-[0.28em] text-gold">07 — DOWNLOAD</p>
+      <h2 data-glitch class="mt-3 font-heading text-3xl font-bold tracking-wide text-cream sm:text-4xl">PICK YOUR BUILD</h2>
+      <p class="mt-4 font-body text-lg leading-relaxed text-warm">Same app, same XMB — the difference is where GPU drivers come from.</p>
+    </div>
+    <div class="mx-auto mt-10 grid max-w-4xl gap-4 md:grid-cols-2">
+      {flavors.map((f) => (
+        <article class="reveal rounded-lg border border-white/8 bg-abyss p-7 transition hover:border-gold/50">
+          <div class="flex items-center justify-between">
+            <h3 class="font-heading text-xl font-bold tracking-[0.1em] text-cream">{f.name}</h3>
+            <span class="rounded bg-gold-muted px-2 py-1 font-mono2 text-[10px] tracking-[0.2em] text-gold">{f.badge}</span>
+          </div>
+          <ul class="mt-5 grid gap-2.5">
+            {f.points.map((p) => (
+              <li class="flex items-start gap-2.5 font-body text-cream/90">
+                <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rotate-45 bg-gold" aria-hidden="true"></span>{p}
+              </li>
+            ))}
+          </ul>
+          <a href={f.href} class="btn-gold mt-6 block rounded bg-gold px-5 py-3 text-center font-heading text-sm font-bold tracking-[0.14em] text-abyss transition hover:bg-focus">{f.cta}</a>
+          <p class="mt-3 text-center font-mono2 text-[11px] tracking-[0.14em] text-faint">{f.note}</p>
+        </article>
+      ))}
+    </div>
+    <div class="reveal mx-auto mt-8 flex max-w-4xl flex-wrap items-center justify-center gap-x-8 gap-y-3 font-mono2 text-[11px] tracking-[0.18em] text-warm">
+      <span>.\/gradlew assembleStandardDebug</span>
+      <span>.\/build_and_install.sh debug</span>
+      <a href="https://discord.gg/t6dzA4wUdG" class="text-gold underline-offset-4 hover:underline">DISCORD SUPPORT ↗</a>
+    </div>
+  </div>
+</section>

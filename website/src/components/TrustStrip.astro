@@ -1,0 +1,27 @@
+---
+// Trust strip — GameHub parity: platform/integration badges as a ticker.
+const items = [
+  "RPCSX CORE",
+  "TURNIP DRIVERS",
+  "XMB LIBRARY",
+  "BLUETOOTH PAD",
+  "TOUCH OVERLAY",
+  "SAVE STATES",
+  "FIRMWARE 4.92",
+  "ANDROID 10+",
+  "ARM64 · X86_64",
+  "GPLv2 OPEN SOURCE",
+];
+---
+
+<section aria-label="Highlights" class="border-y border-white/8 bg-surface/60">
+  <div class="overflow-hidden py-3.5">
+    <div class="ticker-inner flex w-max items-center gap-8 pr-8">
+      {[...items, ...items].map((t) => (
+        <span class="flex items-center gap-8 whitespace-nowrap font-heading text-[12px] font-semibold tracking-[0.22em] text-warm">
+          {t} <span class="text-gold">◆</span>
+        </span>
+      ))}
+    </div>
+  </div>
+</section>

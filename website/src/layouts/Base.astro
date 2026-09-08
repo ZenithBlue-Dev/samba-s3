@@ -1,0 +1,84 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+const {
+  title = "SambaS3 — Play PS3 Games on Android",
+  description = "SambaS3 is a controller-first PS3 emulator launcher for Android, powered by the RPCSX core. XMB game library, Turnip GPU drivers, custom touch overlays, save states and deep settings.",
+} = Astro.props;
+import "../styles/global.css";
+---
+
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0A0D1A" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://zenithblue-oss.github.io/samba-s3/screenshots/feature-graphic.jpg" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="preload" as="image" href="screenshots/device-framed.webp" fetchpriority="high" />
+    <noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>>    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="min-h-screen bg-abyss text-cream antialiased">
+    <div class="crt-grain" aria-hidden="true"></div>
+    <div class="crt-vignette" aria-hidden="true"></div>
+    <div class="crt-scanlines" aria-hidden="true"></div>
+    <slot />
+    <script>
+      // Reveal-on-scroll (progressive enhancement, respects reduced motion)
+      const els = document.querySelectorAll(".reveal");
+      if ("IntersectionObserver" in window) {
+        const io = new IntersectionObserver(
+          (entries) => {
+            for (const e of entries) {
+              if (e.isIntersecting) {
+                e.target.classList.add("is-visible");
+                io.unobserve(e.target);
+              }
+            }
+          },
+          { threshold: 0.12 }
+        );
+        els.forEach((el) => io.observe(el));
+      } else {
+        els.forEach((el) => el.classList.add("is-visible"));
+      }
+      // Safety net: never leave content hidden (e.g. observer quirks,
+      // headless renderers, background tabs throttling IO).
+      setTimeout(() => {
+        document.querySelectorAll(".reveal:not(.is-visible)").forEach((el) => el.classList.add("is-visible"));
+      }, 2500);
+
+      // One-shot chromatic glitch when hero + section titles enter
+      const glitch = document.querySelectorAll("[data-glitch]");
+      if ("IntersectionObserver" in window) {
+        const gio = new IntersectionObserver(
+          (entries) => {
+            for (const e of entries) {
+              if (e.isIntersecting) {
+                e.target.classList.remove("glitch-once");
+                void (e.target as HTMLElement).offsetWidth;
+                e.target.classList.add("glitch-once");
+                gio.unobserve(e.target);
+              }
+            }
+          },
+          { threshold: 0.6 }
+        );
+        glitch.forEach((el) => gio.observe(el));
+      }
+    </script>
+  </body>
+</html>

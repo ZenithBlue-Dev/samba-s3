@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="12" fill="#0A0D1A"/>
+  <rect x="4" y="4" width="56" height="56" rx="9" fill="none" stroke="#C9A84C" stroke-width="2.5"/>
+  <text x="32" y="30" text-anchor="middle" font-family="monospace" font-size="13" font-weight="bold" fill="#F0E8D0">SAMBA</text>
+  <text x="32" y="47" text-anchor="middle" font-family="monospace" font-size="16" font-weight="bold" fill="#C9A84C">S3</text>
+  <circle cx="32" cy="54" r="1.6" fill="#F0C040"/>
+</svg>

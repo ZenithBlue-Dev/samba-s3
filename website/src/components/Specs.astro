@@ -1,0 +1,39 @@
+---
+// Specs + requirements — GameHub "devices" section analogue.
+const reqs = [
+  ["OS", "Android 10+ (SDK 29), target SDK 37"],
+  ["CPU / ABI", "arm64-v8a recommended · x86_64 supported"],
+  ["GPU", "Vulkan-capable Adreno / Mali. Turnip drivers help Adreno a lot"],
+  ["RAM", "6 GB minimum · 8 GB+ recommended for heavier titles"],
+  ["Storage", "Firmware (~300 MB) + your dumps (4–40 GB each)"],
+  ["Formats", "ISO · PKG · folder dumps via the + importer"],
+  ["Input", "USB / Bluetooth controller + editable touch overlay"],
+  ["Builds", "standard (import drivers) · playstore (bundled Turnip)"],
+];
+---
+
+<section id="specs" class="mx-auto max-w-7xl scroll-mt-20 px-4 py-20 sm:px-6 lg:py-28">
+  <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
+    <div class="reveal">
+      <p class="font-mono2 text-[11px] tracking-[0.28em] text-gold">06 — SPECS</p>
+      <h2 data-glitch class="mt-3 font-heading text-3xl font-bold tracking-wide text-cream sm:text-4xl">KNOW BEFORE YOU BOOT</h2>
+      <p class="mt-4 font-body text-lg leading-relaxed text-warm">
+        PS3 emulation is demanding. A flagship SoC with Vulkan, plenty of RAM and
+        realistic expectations (some titles fly, some crawl) is the honest baseline.
+        SambaS3 is <span class="text-cream">experimental</span> — compatibility varies per game, per driver, per setting.
+      </p>
+      <div class="mt-6 rounded-lg border border-gold/30 bg-gold-muted/50 p-5">
+        <p class="font-heading text-sm font-bold tracking-[0.14em] text-gold">▲ BEST RESULTS</p>
+        <p class="mt-2 font-body leading-relaxed text-cream/90">Snapdragon 8-series · Turnip driver matched to the game · PPU LLVM recompiler · per-game config instead of global max settings.</p>
+      </div>
+    </div>
+    <dl class="reveal overflow-hidden rounded-lg border border-white/8">
+      {reqs.map(([k, v], i) => (
+        <div class={`grid gap-1 px-5 py-4 sm:grid-cols-[160px_1fr] sm:gap-4 ${i % 2 === 0 ? "bg-surface" : "bg-abyss"}`}>
+          <dt class="font-heading text-[13px] font-bold tracking-[0.16em] text-gold">{k.toUpperCase()}</dt>
+          <dd class="font-body leading-relaxed text-cream/90">{v}</dd>
+        </div>
+      ))}
+    </dl>
+  </div>
+</section>

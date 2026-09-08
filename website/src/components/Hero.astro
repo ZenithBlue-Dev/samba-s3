@@ -1,0 +1,105 @@
+---
+// Hero — GameHub parity: centered headline, device shot right after the title
+// as the center of attention, then copy + download CTAs.
+---
+
+<section id="top" class="relative overflow-hidden pt-16">
+  <!-- ambient + hero backdrop art -->
+  <div class="pointer-events-none absolute inset-0" aria-hidden="true">
+    <img src="screenshots/hero-bg.jpg" alt="" fetchpriority="high" class="absolute inset-0 h-full w-full object-cover opacity-45" />
+    <div class="absolute inset-0 bg-gradient-to-b from-abyss/80 via-abyss/25 to-abyss"></div>
+    <div class="drift absolute -top-32 left-1/2 h-[480px] w-[820px] -translate-x-1/2 rounded-full bg-gold/12 blur-[140px]"></div>
+    <div class="absolute right-[-120px] top-40 h-[380px] w-[380px] rounded-full bg-overlay/60 blur-[110px]"></div>
+    <div class="absolute bottom-0 left-0 h-px w-full bg-gradient-to-r from-transparent via-gold/50 to-transparent"></div>
+  </div>
+
+  <div class="relative mx-auto max-w-7xl px-4 pb-16 pt-12 sm:px-6 lg:pb-20 lg:pt-16">
+    <div class="mx-auto max-w-3xl text-center">
+      <div class="reveal flex flex-wrap items-center justify-center gap-2">
+        <span class="rounded-full border border-gold/40 bg-gold-muted px-3 py-1 font-mono2 text-[11px] tracking-[0.18em] text-gold">RPCSX CORE · NATIVE ANDROID UI</span>
+        <span class="rounded-full border border-white/10 bg-white/5 px-3 py-1 font-mono2 text-[11px] tracking-[0.18em] text-warm">GPLv2 · EXPERIMENTAL</span>
+      </div>
+
+      <h1 data-glitch class="reveal mt-6 font-display text-[clamp(1.6rem,5vw,3rem)] leading-[1.5] text-cream">
+        PLAY <span class="text-gold">PS3</span> GAMES<br />ON ANDROID
+      </h1>
+    </div>
+
+    <!-- Center of attention: bare framed 13R shot (true transparency, no card, no clip) -->
+    <div class="reveal relative mx-auto mt-24 w-full max-w-6xl sm:mt-28">
+      <img
+        src="screenshots/device-framed.webp"
+        alt="SambaS3 XMB game library running on a OnePlus 13R in a black titanium frame — Uncharted 2 focused"
+        class="w-full drop-shadow-[0_50px_80px_rgba(0,0,0,0.55)]"
+        width="2200"
+        height="1082"
+        fetchpriority="high"
+        decoding="async"
+      />
+
+      <!-- PS3 controller, smaller, floating off the frame's corner -->
+      <img
+        src="screenshots/ps3-pad.webp"
+        alt="PS3 DualShock-style controller"
+        width="760"
+        height="455"
+        loading="lazy"
+        decoding="async"
+        class="float-slow absolute -bottom-8 right-0 w-40 -rotate-6 drop-shadow-[0_28px_36px_rgba(0,0,0,0.65)] sm:-bottom-10 sm:w-60 lg:-right-6 lg:w-72"
+      />
+
+      <!-- PS3 slim console, bigger, floating off the top-left corner -->
+      <img
+        src="screenshots/ps3-console.webp"
+        alt="PS3 slim console with DualShock 3 controller"
+        width="640"
+        height="320"
+        loading="lazy"
+        decoding="async"
+        class="float-slow-rev absolute -top-16 left-0 w-44 drop-shadow-[0_28px_36px_rgba(0,0,0,0.65)] sm:-top-20 sm:w-60 lg:-left-4 lg:w-72"
+      />
+
+      <p class="mt-16 text-center font-mono2 text-[11px] tracking-[0.2em] text-faint">← → MOVE · ✕ PLAY · △ INFO · ○ BACK — SHOT ON ONEPLUS 13R, NOT A MOCKUP</p>
+    </div>
+
+    <div class="mx-auto mt-10 max-w-3xl text-center">
+      <p class="reveal mx-auto max-w-xl font-body text-lg leading-relaxed text-warm">
+        <span class="text-cream">SambaS3</span> turns your phone into a living-room console —
+        an XMB-style game library, controller-first navigation, Turnip GPU drivers
+        and deep RPCSX settings. Your discs, your firmware, your couch.
+      </p>
+
+      <div class="reveal mt-8 flex flex-wrap items-center justify-center gap-3">
+        <a href="https://github.com/zenithblue-oss/samba-s3/releases" class="btn-gold rounded bg-gold px-6 py-3.5 font-heading text-sm font-bold tracking-[0.14em] text-abyss transition hover:bg-focus">
+          ⬇ &nbsp;ANDROID APK
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=com.zenithblue.sambas3" class="rounded border border-gold/40 bg-surface px-6 py-3.5 font-heading text-sm font-bold tracking-[0.14em] text-gold transition hover:border-focus hover:text-focus">
+          GOOGLE PLAY
+        </a>
+        <a href="https://github.com/zenithblue-oss/samba-s3" class="rounded px-4 py-3.5 font-heading text-sm font-semibold tracking-[0.14em] text-warm transition hover:text-cream">
+          VIEW SOURCE ↗
+        </a>
+      </div>
+
+      <dl class="reveal mx-auto mt-8 grid max-w-lg grid-cols-3 gap-3 text-left font-mono2 text-[11px]">
+        <div class="rounded border border-white/8 bg-surface/80 px-3 py-2.5">
+          <dt class="tracking-[0.16em] text-warm">MIN OS</dt>
+          <dd class="mt-1 text-sm text-cream">Android 10+</dd>
+        </div>
+        <div class="rounded border border-white/8 bg-surface/80 px-3 py-2.5">
+          <dt class="tracking-[0.16em] text-warm">ARCH</dt>
+          <dd class="mt-1 text-sm text-cream">arm64 · x86_64</dd>
+        </div>
+        <div class="rounded border border-white/8 bg-surface/80 px-3 py-2.5">
+          <dt class="tracking-[0.16em] text-warm">INPUT</dt>
+          <dd class="mt-1 text-sm text-cream">Pad + Touch</dd>
+        </div>
+      </dl>
+    </div>
+
+    <p class="reveal mx-auto mt-6 max-w-xl text-center font-body text-sm leading-relaxed text-faint">
+      No games or firmware included. Bring your own dumps — piracy is not permitted
+      on our GitHub or Discord.
+    </p>
+  </div>
+</section>
