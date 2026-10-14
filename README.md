@@ -6,6 +6,12 @@
 
 PS3 emulator for Android, based on RPCSX/RPCS3.
 
+[![Telegram](https://img.shields.io/badge/Telegram-Join%20Group-26A5E4?logo=telegram&logoColor=white)](https://t.me/+lV5s1LSFB4o2YzA1)
+[![Play Store Downloads](https://playbadges.pavi2410.me/badge/downloads?id=com.zenithblue.sambas3)](https://play.google.com/store/apps/details?id=com.zenithblue.sambas3)
+[![GitHub Downloads](https://img.shields.io/github/downloads/ZenithBlue-Dev/samba-s3/total?logo=github&label=GitHub%20downloads)](https://github.com/ZenithBlue-Dev/samba-s3/releases)
+
+<a href="https://play.google.com/store/apps/details?id=com.zenithblue.sambas3"><img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" height="80"></a>
+
 [Download Free (GitHub Releases)](https://github.com/ZenithBlue-Dev/samba-s3/releases) · [Get Pro (Google Play)](https://play.google.com/store/apps/details?id=com.zenithblue.sambas3) · [Website](https://zenithblue-dev.github.io/samba-s3/)
 
 <img src="website/public/screenshots/device-framed.webp" alt="SambaS3 game library running on a phone" width="100%" />
@@ -106,3 +112,7 @@ This repository contains this README and the project website (`website/`). It do
 Source code for the GPL-licensed emulator core: coming soon.
 
 SambaS3 is not affiliated with Sony Interactive Entertainment. "PS3" is used only to describe compatibility.
+
+## Community & Support
+
+Join the public Telegram group for help, bug reports, logs, feature requests, game compatibility and releases: https://t.me/+lV5s1LSFB4o2YzA1
