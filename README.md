@@ -39,8 +39,9 @@ To install Free, download the APK from the latest release and allow installs fro
 | Basic performance overlay | Yes | Yes |
 | Aspect ratios 4:3 and 16:9 | Yes | Yes |
 | Per-game compatibility fixes | Yes | Yes |
+| Per-game performance presets | Yes (on by default) | Yes |
+| Fast Mode (curated speed patches and engine settings) | Yes (on by default) | Yes |
 | Save states (save, load, continue) | No | Yes |
-| Performance tuning presets and Fast Mode | No | Yes |
 | Advanced performance overlay settings | No | Yes |
 | Extra aspect ratios (20:9, 21:9, Native) | No | Yes |
 
