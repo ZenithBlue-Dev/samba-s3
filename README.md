@@ -60,6 +60,7 @@ To install Free, download the APK from the latest release and allow installs fro
 - **Performance overlay** showing FPS and frame timing.
 - **Pause menu** with quick access to settings and logs while in game.
 - **Settings** for emulation, graphics, audio, firmware and logging.
+- **Languages**: English, Russian, Spanish, Arabic (right-to-left), Portuguese (Brazil), Indonesian, Turkish and Simplified Chinese, with a language picker in setup and Settings.
 
 ## Requirements
 
