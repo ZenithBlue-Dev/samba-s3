@@ -1,0 +1,42 @@
+---
+// iOS App Store support page. Keep console brand names off this page (App Store rules).
+import Base from "../../layouts/Base.astro";
+---
+
+<Base
+  title="SambaS3 Emulator for iPhone — Support"
+  description="Support for SambaS3 Emulator for iPhone: getting started, known limits and how to contact us."
+>
+  <main class="mx-auto max-w-3xl px-4 py-20 sm:px-6 lg:py-28">
+    <p class="font-mono2 text-[11px] tracking-[0.28em] text-gold">IPHONE — SUPPORT</p>
+    <h1 class="mt-3 font-heading text-3xl font-bold tracking-wide text-cream sm:text-4xl">SAMBAS3 EMULATOR FOR IPHONE</h1>
+    <p class="mt-6 font-body leading-relaxed text-warm">
+      An experimental console emulator for iPhone. It does not include any games or system firmware: you supply
+      homebrew or games you have legally dumped from discs and consoles you own, and the system firmware from an
+      update file you obtained legally.
+    </p>
+
+    <h2 class="mt-12 font-heading text-xl font-bold tracking-[0.1em] text-cream">GETTING STARTED</h2>
+    <ol class="mt-4 list-decimal space-y-2 pl-6 font-body leading-relaxed text-warm">
+      <li>Open <strong class="text-cream">Settings</strong> and tap <strong class="text-cream">Install firmware</strong> to pick the firmware update file.</li>
+      <li>
+        In <strong class="text-cream">Games</strong>, tap <strong class="text-cream">+</strong> to import a game folder, or copy game
+        folders into <em>On My iPhone › SambaS3 › Games</em> with the Files app, then pull to refresh.
+      </li>
+      <li>Tap a game to play. The menu at the top right pauses, toggles the touch controls or stops the game.</li>
+    </ol>
+    <p class="mt-4 font-body leading-relaxed text-warm">
+      The emulator core runs as an interpreter on iOS, so performance is limited and most games do not run correctly yet.
+    </p>
+
+    <h2 class="mt-12 font-heading text-xl font-bold tracking-[0.1em] text-cream">CONTACT</h2>
+    <p class="mt-4 font-body leading-relaxed text-warm">
+      Report problems or ask questions by e-mail at
+      <a class="text-gold underline" href="mailto:zenithblue.dev@gmail.com">zenithblue.dev@gmail.com</a>
+      or on our <a class="text-gold underline" href="https://discord.gg/t6dzA4wUdG">Discord server</a>.
+      Please attach the session log (Settings › Share session log). We cannot help you obtain games or firmware.
+    </p>
+
+    <p class="mt-12 font-body"><a class="text-gold underline" href="privacy/">Privacy policy</a></p>
+  </main>
+</Base>
