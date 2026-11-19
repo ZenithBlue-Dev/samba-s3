@@ -17,6 +17,13 @@ const flavors = [
     href: "https://play.google.com/store/apps/details?id=com.zenithblue.sambas3",
     note: "GOOGLE PLAY · AUTO-UPDATES",
   },
+  {
+    name: "APP STORE",
+    badge: "IPHONE",
+    points: ["iOS 17+ on iPhone", "Runs without JIT, so slower than Android", "Install and update via the App Store"],
+    href: "https://apps.apple.com/app/id6829154073",
+    note: "APP STORE · AUTO-UPDATES",
+  },
 ];
 ---
 
@@ -25,9 +32,9 @@ const flavors = [
     <div class="reveal mx-auto max-w-2xl text-center">
       <p class="font-mono2 text-[11px] tracking-[0.28em] text-gold">07 — DOWNLOAD</p>
       <h2 data-glitch class="mt-3 font-heading text-3xl font-bold tracking-wide text-cream sm:text-4xl">PICK YOUR BUILD</h2>
-      <p class="mt-4 font-body text-lg leading-relaxed text-warm">Same app, same XMB — the difference is where GPU drivers come from.</p>
+      <p class="mt-4 font-body text-lg leading-relaxed text-warm">Same app, same XMB. On Android the difference is where GPU drivers come from; iPhone installs from the App Store.</p>
     </div>
-    <div class="mx-auto mt-10 grid max-w-4xl gap-4 md:grid-cols-2">
+    <div class="mx-auto mt-10 grid max-w-6xl gap-4 md:grid-cols-3">
       {flavors.map((f) => (
         <article class="reveal rounded-lg border border-white/8 bg-abyss p-7 transition hover:border-gold/50">
           <div class="flex items-center justify-between">
@@ -41,7 +48,11 @@ const flavors = [
               </li>
             ))}
           </ul>
-          <a href={f.href} class="btn-gold mt-6 block rounded bg-gold px-5 py-3 text-center font-heading text-sm font-bold tracking-[0.14em] text-abyss transition hover:bg-focus">{f.cta}</a>
+          {f.cta ? (
+            <a href={f.href} class="btn-gold mt-6 block rounded bg-gold px-5 py-3 text-center font-heading text-sm font-bold tracking-[0.14em] text-abyss transition hover:bg-focus">{f.cta}</a>
+          ) : (
+            <a href={f.href} class="mt-6 flex justify-center" aria-label="Download on the App Store"><img src="app-store-badge.svg" alt="Download on the App Store" class="h-11 w-auto" width="120" height="40" /></a>
+          )}
           <p class="mt-3 text-center font-mono2 text-[11px] tracking-[0.14em] text-faint">{f.note}</p>
         </article>
       ))}

@@ -1,7 +1,8 @@
 ---
 // Specs + requirements — GameHub "devices" section analogue.
 const reqs = [
-  ["OS", "Android 10+ (SDK 29), target SDK 37"],
+  ["Android", "Android 10+ (SDK 29), target SDK 37"],
+  ["iOS", "iOS 17.0+ · iPhone"],
   ["CPU / ABI", "arm64-v8a recommended · x86_64 supported"],
   ["GPU", "Vulkan-capable Adreno / Mali. Turnip drivers help Adreno a lot"],
   ["RAM", "6 GB minimum · 8 GB+ recommended for heavier titles"],
@@ -19,7 +20,7 @@ const reqs = [
       <h2 data-glitch class="mt-3 font-heading text-3xl font-bold tracking-wide text-cream sm:text-4xl">KNOW BEFORE YOU BOOT</h2>
       <p class="mt-4 font-body text-lg leading-relaxed text-warm">
         PS3 emulation is demanding. A flagship SoC with Vulkan, plenty of RAM and
-        realistic expectations (some titles fly, some crawl) is the honest baseline.
+        realistic expectations (some titles fly, some crawl) is the honest baseline. The iPhone build runs without JIT, so performance is lower than on Android.
         SambaS3 is <span class="text-cream">experimental</span> — compatibility varies per game, per driver, per setting.
       </p>
       <div class="mt-6 rounded-lg border border-gold/30 bg-gold-muted/50 p-5">
